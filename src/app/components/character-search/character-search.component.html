@@ -1,0 +1,95 @@
+<h1>Búscador de personajes</h1>
+
+<!-- <form (ngSubmit)="search()">
+    <input type="text" name="query" [(ngModel)]="query" />
+    <button type="submit" value="Buscar"> Buscar </button> -->
+<!-- <input type="submit" value="{{labelButton}}" (click)="search()"/> -->
+<!--<p>Parámetro de búsqueda: {{ query }} </p>
+    <p>Resultado: {{ result }}</p>
+</form> -->
+
+<!-- <form #searchChar="ngForm" (ngSubmit)="onSubmit(searchChar)">
+    <label for="name">Nombre:  </label>
+    <input type="text" required name="name" [(ngModel)]="charname" #name="ngModel" />
+    <input type="submit" value="buscar" />
+    <label *ngIf="name.invalid && (name.dirty || name.touched)" class="error"> ¡Debe añadir un nombre! </label>
+    <label *ngIf="messageNoResults !== ''" class="error">
+      {{messageNoResults}}
+    </label>
+</form> -->
+
+<form #searchChar="ngForm">
+    <div>
+        <label>
+          <span>Buscar por nombre: </span>
+          <input type="text" required name="name" [(ngModel)]="charName" #name="ngModel"/>
+        </label>
+        <button type="button" (click)="searchByName(name)" [disabled]="name.invalid&&(name.dirty||name.touched)" mat-raised-button color="primary">
+            Buscar
+        </button>
+        <p *ngIf="name.invalid && (name.dirty || name.touched) " class="error "> ¡Debe añadir un nombre! </p>
+        <p *ngIf="noName !=='' " class="error ">
+            {{messageNoResults}}
+        </p>
+    </div>
+</form>
+
+<!-- <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label type="text" required name="name" [(ngModel)]="charname" #name="ngModel">Email</mat-label>
+        <input type="email" matInput placeholder="Ex. pat@example.com">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="name.invalid&&(name.dirty||name.touched)">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="name.invalid&&(name.dirty||name.touched)">
+            Email is <strong>required</strong>
+        </mat-error>
+
+    </mat-form-field>
+    <button type="button" (click)="onSubmit(name)" [disabled]="name.invalid&&(name.dirty||name.touched)" mat-raised-button color="primary">
+      Buscar
+  </button>
+</form> -->
+
+
+
+
+<!-- Mostrar el contenido de la búsqueda -->
+
+
+<!-- <mat-list role="list" *ngFor="let character of charactersSearch ">
+    <mat-list-item role="listitem">
+        <a routerLink="/detail/{{ character.id }} ">
+            <div class="card ">
+                <div class="cardname ">
+                    <p>{{ character.name }}</p>
+                </div>
+                <figure><img [src]="character.image " /></figure>
+            </div>
+        </a>
+    </mat-list-item>
+</mat-list> -->
+
+<!-- <p>{{charactersSearch}}</p>
+
+<mat-card class="example-card" *ngFor="let character of charactersSearch ">
+    <mat-card-title-group>
+        <mat-card-title>{{ character.name |json }}</mat-card-title>
+        <img mat-card-xl-image src="character.image">
+    </mat-card-title-group>
+</mat-card> -->
+
+
+<ul>
+    <li *ngFor="let character of charactersSearch ">
+        <a routerLink="/detail/{{ character.id }} ">
+            <div class="card ">
+                <div class="cardname ">
+                    <p>{{ character.name }}</p>
+                </div>
+                <figure><img [src]="character.image " /></figure>
+            </div>
+        </a>
+    </li>
+</ul>
