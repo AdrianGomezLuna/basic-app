@@ -19,6 +19,6 @@ export class RickMortyService {
   }
 
   getCharactersById(id: string): Observable<any> {
-    return this.http.get('https://rickandmortyapi.com/api/character/' + id);
+    return this.http.get(`https://rickandmortyapi.com/api/character/${id}`);
   }
 }

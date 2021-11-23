@@ -1,0 +1,15 @@
+.error {
+    color: red;
+}
+
+.formulario {
+    margin-left: 2em;
+    margin-top: 2em;
+    mat-form-field {
+        width: 30%;
+    }
+    button {
+        margin-left: 2em;
+        // height: 50px;
+    }
+}
