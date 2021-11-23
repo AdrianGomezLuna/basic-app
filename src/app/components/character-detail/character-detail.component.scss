@@ -12,3 +12,11 @@ h1 {
     text-align: center;
     color: green;
 }
+
+.mat-card-header .mat-card-title {
+    margin-bottom: 20px;
+}
+
+.mat-card-image:first-child {
+    margin-top: 0px;
+}

@@ -8,21 +8,17 @@ import { RickMortyService } from 'src/app/services/rick-morty.service';
 })
 export class CharacterSearchComponent implements OnInit {
 
-  ​public query: string;
-  public result: string = '';
+
   @Input() labelButton: string = '';
   // @Output() searchEvent = new EventEmitter();
   // public characters;
   public charactersSearch: any;
-  public charactersList: any;
   public messageNoResults: string = '';
   public charName: string = '';
   public noName: string = '';
   public charId: string = '';
 
-  constructor(private rickmortyService: RickMortyService) {
-    this.query = '';
-  }
+  constructor(private rickmortyService: RickMortyService) {}
 
   ngOnInit() {}
 
@@ -37,6 +33,7 @@ export class CharacterSearchComponent implements OnInit {
           (data) => {
             this.charactersSearch = data.results;
             this.messageNoResults = '';
+            this.charId = ' ';
           },
           (error) => {
             this.charactersSearch = [];
@@ -58,6 +55,7 @@ export class CharacterSearchComponent implements OnInit {
             console.log(data);
             this.charactersSearch = [data];
             this.messageNoResults = '';
+            this.charName = ' ';
           },
           (error) => {
             this.charactersSearch = [];

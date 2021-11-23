@@ -1,8 +1,11 @@
 <h1>Personaje de Rick & Morty</h1>
+
 <mat-card class="example-card" *ngIf="character">
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ character.name }}</mat-card-title>
+
+        <mat-card-title>
+            {{ character.name }}
+        </mat-card-title>
         <mat-card-subtitle>
             <p>Nombre: {{ character.name }}</p>
             <p>Estado: {{ character.status }}</p>

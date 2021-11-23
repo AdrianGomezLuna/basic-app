@@ -1,13 +1,16 @@
 <h1>Listado de personajes de Rick & Morty</h1>
+
 <mat-grid-list cols="2">
     <mat-grid-tile *ngFor="let character of characters">
         <a routerLink="/detail/{{ character.id }}">
             <mat-card class="example-card">
                 <mat-card-header>
-                    <mat-card-title> {{ character.name }} </mat-card-title>
+                    <mat-card-title>
+                        {{ character.name }}
+                    </mat-card-title>
                 </mat-card-header>
                 <figure>
-                    <img [src]="character.image">
+                    <img [src]="character.image" [alt]="character.name">
                 </figure>
             </mat-card>
         </a>

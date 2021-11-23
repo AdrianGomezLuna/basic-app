@@ -1,32 +1,44 @@
 <h1>Buscador de personajes</h1>
 
+<!-- Form. Two types of search:
+        1º By name
+        2º By ID
+-->
 <form #searchChar="ngForm">
     <div class="formulario">
         <mat-form-field class="col-sm-6" appearance="outline" class="col-sm-3">
-            <mat-label>Buscar por nombre: </mat-label>
+            <mat-label>
+                Buscar por nombre:
+            </mat-label>
             <input matInput type="text" name="name" #name="ngModel" [(ngModel)]="charName" placeholder="Nombre del personaje" required />
-            <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">El NOMBRE del personaje es
-                <strong>obligatorio</strong>
+            <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+                El NOMBRE del personaje es <strong>obligatorio</strong>
             </mat-error>
         </mat-form-field>
+
         <button type="button" (click)="searchByName(name)" [disabled]="name.invalid&&(name.dirty||name.touched)" mat-raised-button color="primary">
           Buscar
         </button>
+
         <p *ngIf="charName !=='' " class="error ">
             {{messageNoResults}}
         </p>
     </div>
     <div class="formulario">
         <mat-form-field class="col-sm-6" appearance="outline" class="col-sm-3">
-            <mat-label>Buscar por ID: </mat-label>
+            <mat-label>
+                Buscar por ID:
+            </mat-label>
             <input matInput type="text" name="id" #id="ngModel" [(ngModel)]="charId" placeholder="ID de personaje" required />
-            <mat-error *ngIf="id.invalid && (id.dirty || id.touched)">El ID del personaje es
-                <strong>obligatorio</strong>
+            <mat-error *ngIf="id.invalid && (id.dirty || id.touched)">
+                El ID del personaje es <strong>obligatorio</strong>
             </mat-error>
         </mat-form-field>
+
         <button type="button" (click)="searchById(id)" [disabled]="id.invalid && (id.dirty || id.touched)" mat-raised-button color="primary">
           Buscar
         </button>
+
         <p *ngIf="charId !=='' " class="error ">
             {{messageNoResults}}
         </p>
@@ -34,7 +46,7 @@
 </form>
 
 
-<!-- Mostrar el contenido de la búsqueda -->
+<!-- Display the contents of the search -->
 
 
 <mat-grid-list cols="2">
@@ -42,10 +54,12 @@
         <a routerLink="/detail/{{ character.id }}">
             <mat-card class="example-card">
                 <mat-card-header>
-                    <mat-card-title> {{ character.name }} </mat-card-title>
+                    <mat-card-title>
+                        {{ character.name }}
+                    </mat-card-title>
                 </mat-card-header>
                 <figure>
-                    <img [src]="character.image">
+                    <img [src]="character.image" [alt]="character.name">
                 </figure>
             </mat-card>
         </a>
