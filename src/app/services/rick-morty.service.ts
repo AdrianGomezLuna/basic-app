@@ -23,7 +23,7 @@ export class RickMortyService {
    * @returns any
    */
   getCharactersByName(name: string): Observable<any> {
-    return this.http.get( environment.apiUrl + name );
+    return this.http.get( environment.apiUrl + `?name=${name}`);
   }
 
   /**
